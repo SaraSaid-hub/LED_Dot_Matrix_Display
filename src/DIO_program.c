@@ -31,46 +31,39 @@ void MGPIO_VoidSetPinDirection (u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode){
 	case GPIOB:
 		if(copy_u8PIN<=7){
 
-					//clear
-					GPIOB_CRL &= ~((0b1111)<<(copy_u8PIN*4));
-					//Then set the mode
-					GPIOB_CRL |= ((copy_u8Mode)<<(copy_u8PIN*4));
+		//clear
+		GPIOB_CRL &= ~((0b1111)<<(copy_u8PIN*4));
+		//Then set the mode
+		GPIOB_CRL |= ((copy_u8Mode)<<(copy_u8PIN*4));
 
+		}
+		else if (copy_u8PIN<=15){
+		copy_u8PIN=copy_u8PIN-8;
+		//clear
+		GPIOB_CRH &= ~((0b1111)<<(copy_u8PIN*4));
+		//Then set the mode
+		GPIOB_CRH |= ((copy_u8Mode)<<(copy_u8PIN*4));
 
-				}
-				else if (copy_u8PIN<=15){
-					copy_u8PIN=copy_u8PIN-8;
-					//clear
-					GPIOB_CRH &= ~((0b1111)<<(copy_u8PIN*4));
-					//Then set the mode
-					GPIOB_CRH |= ((copy_u8Mode)<<(copy_u8PIN*4));
-
-				}
-				break;
+		}
+		break;
 	case GPIOC:
 		if(copy_u8PIN<=7){
 
-					//clear
-					GPIOC_CRL &= ~((0b1111)<<(copy_u8PIN*4));
-					//Then set the mode
-					GPIOC_CRL |= ((copy_u8Mode)<<(copy_u8PIN*4));
+		//clear
+		GPIOC_CRL &= ~((0b1111)<<(copy_u8PIN*4));
+		//Then set the mode
+		GPIOC_CRL |= ((copy_u8Mode)<<(copy_u8PIN*4));
+		}
+		else if (copy_u8PIN<=15){
+		copy_u8PIN=copy_u8PIN-8;
+		//clear
+		GPIOC_CRH &= ~((0b1111)<<(copy_u8PIN*4));
+		//Then set the mode
+		GPIOC_CRH |= ((copy_u8Mode)<<(copy_u8PIN*4));
 
-
-				}
-				else if (copy_u8PIN<=15){
-					copy_u8PIN=copy_u8PIN-8;
-					//clear
-					GPIOC_CRH &= ~((0b1111)<<(copy_u8PIN*4));
-					//Then set the mode
-					GPIOC_CRH |= ((copy_u8Mode)<<(copy_u8PIN*4));
-
-				}
-				break;
+	  }
+	break;
 	}
-
-
-
-
 }
 
 
